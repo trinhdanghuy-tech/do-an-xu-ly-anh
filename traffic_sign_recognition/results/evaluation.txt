@@ -1,0 +1,62 @@
+# KẾT QUẢ ĐÁNH GIÁ HỆ THỐNG NHẬN DIỆN VÀ PHÂN VÙNG BIỂN BÁO GIAO THÔNG
+
+## Thông tin chung
+- Ngày đánh giá: [YYYY-MM-DD]
+- Bộ dữ liệu sử dụng: [Tên bộ dữ liệu, ví dụ: GTSRB, Dữ liệu tự thu thập,...]
+- Số lượng ảnh/video kiểm thử: [Số lượng]
+- Các tham số chính sử dụng:
+    - Ngưỡng màu HSV (nếu dùng): [Ghi rõ dải màu]
+    - Ngưỡng Canny (nếu dùng): Low=[Giá trị], High=[Giá trị]
+    - Kích thước kernel hình thái: Mở=[Kích thước], Đóng=[Kích thước]
+    - Ngưỡng diện tích contour tối thiểu: [Giá trị]
+    - ... (Các tham số quan trọng khác)
+
+---
+
+## Đánh giá Phân vùng (Segmentation Evaluation)
+(Yêu cầu có dữ liệu "ground truth" - mask đúng của biển báo)
+
+- **Chỉ số trung bình trên toàn bộ tập kiểm thử:**
+    - IoU (Intersection over Union) trung bình: [Giá trị] %
+    - Pixel Accuracy trung bình: [Giá trị] %
+    - Precision trung bình (cho vùng biển báo): [Giá trị] %
+    - Recall trung bình (cho vùng biển báo): [Giá trị] %
+    - F1-Score trung bình (cho vùng biển báo): [Giá trị] %
+
+- **(Tùy chọn) Kết quả chi tiết cho từng ảnh (nếu cần):**
+    - image1.jpg: IoU=[Giá trị]%, Accuracy=[Giá trị]%, Precision=[Giá trị]%, Recall=[Giá trị]%, F1=[Giá trị]%
+    - image2.jpg: IoU=[Giá trị]%, Accuracy=[Giá trị]%, Precision=[Giá trị]%, Recall=[Giá trị]%, F1=[Giá trị]%
+    - ...
+
+---
+
+## Đánh giá Nhận dạng (Recognition Evaluation) - Nếu có
+(Yêu cầu có nhãn đúng cho từng loại biển báo)
+
+- **Độ chính xác tổng thể (Overall Accuracy):** [Giá trị] % (Số biển báo nhận dạng đúng / Tổng số biển báo)
+
+- **Ma trận nhầm lẫn (Confusion Matrix):**
+  (Trình bày ma trận ở đây, cho thấy lớp nào bị nhầm thành lớp nào)
+  Ví dụ:
+          Predicted Cấm | Predicted Nguy hiểm | Predicted Hiệu lệnh
+  Actual Cấm        |   [Số lượng]  |     [Số lượng]     |     [Số lượng]
+  Actual Nguy hiểm |   [Số lượng]  |     [Số lượng]     |     [Số lượng]
+  Actual Hiệu lệnh  |   [Số lượng]  |     [Số lượng]     |     [Số lượng]
+
+- **Precision, Recall, F1-Score cho từng loại biển báo:**
+    - Loại biển báo 1 (Ví dụ: Cấm đi ngược chiều): Precision=[Giá trị]%, Recall=[Giá trị]%, F1=[Giá trị]%
+    - Loại biển báo 2 (Ví dụ: Nguy hiểm đường trơn): Precision=[Giá trị]%, Recall=[Giá trị]%, F1=[Giá trị]%
+    - ...
+
+---
+
+## Đánh giá Hiệu năng (Performance Evaluation)
+
+- Thời gian xử lý trung bình cho mỗi ảnh: [Giá trị] giây/ảnh
+- (Tùy chọn) Thời gian xử lý cho từng bước (Tăng cường, Khôi phục, Phân vùng, Hình thái,...): [Ghi chi tiết]
+
+---
+
+## Nhận xét và Ghi chú
+- [Ghi lại các quan sát quan trọng, ví dụ: hệ thống hoạt động tốt/kém trong điều kiện nào, các lỗi thường gặp, đề xuất cải tiến,...]
+- [So sánh hiệu quả khi bật/tắt các bước Tăng cường/Khôi phục ảnh.]
