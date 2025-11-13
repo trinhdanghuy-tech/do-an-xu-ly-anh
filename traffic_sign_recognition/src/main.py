@@ -178,7 +178,7 @@ def process_single_image(image_path, results_dir):
 # 🚀 MAIN – CHẠY CHO 1 ẢNH
 # =====================================================
 if __name__ == "__main__":
-    IMAGE_PATH = "C:\\DoAnXuLyAnh\\traffic_sign_recognition\\data\\gstrb-dataset\\gtsrb\\1\\00000_00029.ppm"
+    IMAGE_PATH = "C:\\DoAnXuLyAnh\\traffic_sign_recognition\\data\\gstrb-dataset\\gtsrb\\2\\00000_00029.ppm"
     RESULTS_DIR = "C:\\DoAnXuLyAnh\\traffic_sign_recognition\\results"
 
     process_single_image(IMAGE_PATH, RESULTS_DIR)
