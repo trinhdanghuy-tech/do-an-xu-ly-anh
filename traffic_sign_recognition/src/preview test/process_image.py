@@ -145,7 +145,7 @@ if __name__ == "__main__":
     print("Mô hình đã tải xong.")
 
     # 2. Đường dẫn ảnh đầu vào
-    IMAGE_PATH = 'C:\\DoAnXuLyAnh\\traffic_sign_recognition\\data\\gstrb-dataset\\gtsrb\\0\\00000_00029.ppm' # <-- THAY ĐỔI ĐƯỜNG DẪN NÀY
+    IMAGE_PATH = 'C:\\DoAnXuLyAnh\\traffic_sign_recognition\\data\\gstrb-dataset\\gtsrb\\0\\00001_00029.ppm' # <-- THAY ĐỔI ĐƯỜNG DẪN NÀY
 
     # 3. Chạy Giai đoạn 1: Tiền xử lý + CLAHE
     original_img, enhanced_img, hsv_clahe, v_clahe = load_and_preprocess_image(IMAGE_PATH)
@@ -159,11 +159,15 @@ if __name__ == "__main__":
         # Hoặc bạn có thể thử với 'enhanced_img'
         classification_results = classify_signs(resnet_model, original_img, detected_circles)
         
-        # 6. Vẽ kết quả
-        final_image = draw_results(original_img, classification_results)
+        # # 6. Vẽ kết quả
+        # final_image = draw_results(original_img, classification_results)
         
-        # 7. Hiển thị kết quả
-        cv2.imshow('Ảnh Gốc', original_img)
+        # copy ảnh gốc để vẽ kết quả
+        final_image = original_img.copy()
+        final_image = draw_results(final_image, classification_results)
+        
+        # hiển thị
+        cv2.imshow('Ảnh Gốc', original_img)         # ảnh gốc thực sự
         cv2.imshow('Ảnh đã tăng cường CLAHE', enhanced_img)
         cv2.imshow('Kết quả Cuối cùng', final_image)
         
